@@ -4,35 +4,37 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 const googleAnalyticsTrackingId = process.env.GOOGLE_ANALYTICS_ID
 
 module.exports = {
+  pathPrefix: "/demos",
   siteMetadata: {
-    // You can overwrite values here that are used for the SEO component
-    // You can also add new values here to query them like usual
-    // See all options: https://github.com/LekoArts/gatsby-themes/blob/master/themes/gatsby-theme-minimal-blog/gatsby-config.js
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: `List of papers`,
+    author: `Byeongseon Park`,
+    siteTitleAlt: `List of papers`,
+    siteUrl: `https://6gsn.github.io/demos`,
+    siteLanguage: `en`,
   },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      // See the theme's README for all available options
+      //See the theme's README for all available options
       options: {
-        navigation: [
-          {
-            title: `Blog`,
-            slug: `/blog`,
-          },
-          {
-            title: `About`,
-            slug: `/about`,
-          },
-        ],
+        //navigation: [
+        //  {
+        //    title: `Blog`,
+        //    slug: `/blog`,
+        //  },
+        //  {
+        //    title: `About`,
+        //    slug: `/about`,
+        //  },
+        //],
         externalLinks: [
           {
-            name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            name: `Github`,
+            url: `https://github.com/6gsn`,
           },
           {
-            name: `Homepage`,
-            url: `https://www.lekoarts.de?utm_source=minimal-blog&utm_medium=Starter`,
+            name: `Twitter`,
+            url: `https://twitter.com/dislore`,
           },
         ],
       },
