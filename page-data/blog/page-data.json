@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-blog-query-tsx",
     "path": "/blog",
-    "result": {"data":{"allPost":{"nodes":[{"slug":"/mtl_accent","title":"TEST","date":"25.10.2019","excerpt":"TEST","timeToRead":1,"description":null,"tags":null}]}},"pageContext":{"formatString":"DD.MM.YYYY"}},
+    "result": {"data":{"allPost":{"nodes":[{"slug":"/mtl_accent","title":"A unified accent estimation method based on multi-task learning for Japanese text-to-speech","date":"07.10.2021","excerpt":"Submitted to ICASSP2022 Authors Byeongseon Park Ryuichi Yamamoto Kentaro Tachibana","timeToRead":1,"description":null,"tags":null}]}},"pageContext":{"formatString":"DD.MM.YYYY"}},
     "staticQueryHashes": ["2744905544","3090400250","318001574"]}
