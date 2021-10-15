@@ -28,6 +28,11 @@ When the proposed method is incorporated into a neural TTS system, we find that 
 
 ### Demo
 
+#### TTS setup
+
+- **Acoustic model** : **FastSpeech2** [[1](https://arxiv.org/abs/2006.04558)]
+- **Vocoder** : **Parallel WaveGAN** [[2](https://arxiv.org/abs/1910.11480)] (See [[3](https://arxiv.org/abs/2010.14151)] for more details)
+
 #### Target tasks
 
 <img src="accent_sandhi.png" alt="accent" width="250px"/>
@@ -36,27 +41,53 @@ When the proposed method is incorporated into a neural TTS system, we find that 
 - **APs** : Accent phrases
 - **ANs** : Accent nuclei
 
-#### TTS setup
-
-- **Acoustic model** : **FastSpeech2** [[1](https://arxiv.org/abs/2006.04558)]
-- **Vocoder** : **Parallel WaveGAN** [[2](https://arxiv.org/abs/1910.11480)] (See [[3](https://arxiv.org/abs/2010.14151)] for more details)
+<br/>
 
 #### Systems used for comparision
 
-- **Ground truth** : Recorded speech.
-- **Single**:  The system combined three single-task based models.
-- **Dual**: The system combined a single-task based model for **IP** task and a dual-task based model for **AP** and **AN** tasks.
-- **Triple**: The system used a triple-task based model.
+##### Models
+
+| Model	| Encoder	| Decoder	| Task |
+| ----- | ------ | ---- | ---- |
+| (a)[[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)]	| -			| CRF		| AP |
+| (b)[[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)]	| -			| CRF		| AN |
+| (c)	| Bi-LSTM		| CRF				| **IP**		|
+| (d)	| Bi-LSTM		| CRF				| **AP**		|
+| (e)	| Bi-LSTM		| AR				| **AN**		|
+| (f)	| Bi-LSTM		| CRF, AR			| **AN+AN**		|
+| (g)	| Bi-LSTM		| CRF, CRF, AR		| **IP+AP+AN**	|
+
+<!-- [^1]: bi-directional long short-term memory
+[^2]: conditional random field
+[^3]: autoregressive model -->
+
+##### Systems
+
+| System		| Components	|
+| ------------- | ------------- |
+| Recording		| -				|
+| (A)			| (a), (b), (c) |
+| (B)			| (c), (d), (e)	|
+| (C)			| (c), (f)		|
+| (D)			| (g)			|
+
+<!-- ##### Targets for comparision -->
+
+<!-- - **Recording** : Recorded speech.
+- **Syste(A)**:  The system combined three single-task based models, included two CRF-based models for **AP** and **AN** [[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)].
+- **Syste(B)**:  The system combined three single-task based models.
+- **Syste(C)**: The system combined a single-task based model for **IP** task and a dual-task based model for **AP** and **AN** tasks.
+- **Syste(D)**: The system used a triple-task based model. -->
 
 ##### Audio samples (Japanese)
 
 Sample 1
 
-| Ground truth			| Single				|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/single.wav"></audio> |
+| Recording			| System(A)				| System(B)				|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/single.wav"></audio> |
 
-| Dual					| Triple <font color="color:blue">(ours)</font>	|
+| System(C)					| System(D) <font color="color:blue">(ours)</font>	|
 |-----------------------|-----------------------|
 | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/triple.wav"></audio> |
 
@@ -64,11 +95,11 @@ Sample 1
 
 Sample 2
 
-| Ground truth			| Single				|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/single.wav"></audio> |
+| Recording			| System(A)				| System(B)				|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/single.wav"></audio> |
 
-| Dual					| Triple <font color="color:blue">(ours)</font>	|
+| System(C)					| System(D) <font color="color:blue">(ours)</font>	|
 |-----------------------|-----------------------|
 | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/triple.wav"></audio> |
 
@@ -76,19 +107,45 @@ Sample 2
 
 Sample 3
 
-| Ground truth			| Single				|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/single.wav"></audio> |
+| Recording			| System(A)				| System(B)				|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/single.wav"></audio> |
 
-| Dual					| Triple <font color="color:blue">(ours)</font>	|
+| System(C)					| System(D) <font color="color:blue">(ours)</font>	|
 |-----------------------|-----------------------|
 | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/triple.wav"></audio> |
 
+<br/>
 
+Sample 4
+
+| Recording			| System(A)				| System(B)				|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/single.wav"></audio> |
+
+| System(C)					| System(D) <font color="color:blue">(ours)</font>	|
+|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/triple.wav"></audio> |
+
+<br/>
+
+Sample 5
+
+| Recording			| System(A)				| System(B)				|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/single.wav"></audio> |
+
+| System(C)					| System(D) <font color="color:blue">(ours)</font>	|
+|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/triple.wav"></audio> |
+
+
+<br/>
+<br/>
 
 #### States used for comparision
 
-- **Ground truth** : Recorded speech.
+- **Recording** : Recorded speech.
 - **X**: The speech synthesised using wrong **IP**, **AP**, and **AN** information.
 - **IP**: The speech synthesised using correct **IP** information, with wrong **AP** and **AN**.
 - **AP**: The speech synthesised using correct **AP** information, with wrong **IP** and **AN**.
@@ -97,21 +154,19 @@ Sample 3
 - **AP+AN**: The speech synthesised using correct **AP** and **AN** information, with wrong **IP**.
 - **IP+AP+AN**:  The speech synthesised using correct **IP**, **AP**, and **AN** information.
 
+<br/>
+
 ##### Audio samples (Japanese)
 
 Sample 1
 
-| Ground truth			| X						|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/x.wav"></audio> |
+| Recording			| X						| IP					|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/x.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ip.wav"></audio> |
 
-| IP					| AP					|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ip.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ap.wav"></audio> |
-
-| AN					| IP+AP					|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/an.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ip_ap.wav"></audio> |
+| AP					| AN					| IP+AP					|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ap.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/an.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample01/ip_ap.wav"></audio> |
 
 | AP+AN					| IP+AP+AN				|
 |-----------------------|-----------------------|
@@ -121,17 +176,13 @@ Sample 1
 
 Sample 2
 
-| Ground truth			| X						|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/x.wav"></audio> |
+| Recording			| X						| IP					|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/x.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ip.wav"></audio> |
 
-| IP					| AP					|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ip.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ap.wav"></audio> |
-
-| AN					| IP+AP					|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/an.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ip_ap.wav"></audio> |
+| AP					| AN					| IP+AP					|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ap.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/an.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample02/ip_ap.wav"></audio> |
 
 | AP+AN					| IP+AP+AN				|
 |-----------------------|-----------------------|
@@ -141,17 +192,13 @@ Sample 2
 
 Sample 3
 
-| Ground truth			| X						|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/x.wav"></audio> |
+| Recording			| X						| IP					|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/x.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ip.wav"></audio> |
 
-| IP					| AP					|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ip.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ap.wav"></audio> |
-
-| AN					| IP+AP					|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/an.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ip_ap.wav"></audio> |
+| AP					| AN					| IP+AP					|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ap.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/an.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/tasks/sample03/ip_ap.wav"></audio> |
 
 | AP+AN					| IP+AP+AN				|
 |-----------------------|-----------------------|
@@ -160,9 +207,10 @@ Sample 3
 
 ### References
 
-- \[1\]: Y. Ren, C. Hu, X. Tan, S. Zhao, Z. Zhao, and T.Y. Liu, “FastSpeech 2: Fast and high-quality end-to-end text-to-speech,” in Proc. ICLR, 2021 ([arXiv](https://arxiv.org/abs/2006.04558))
-- \[2\]: R. Yamamoto, E. Song, and J.-M. Kim, “Parallel WaveGAN: A fast waveform generation model based on generative adversarial networks with multi-resolution spectrogram,” in Proc. ICASSP, 2020 ([arXiv](https://arxiv.org/abs/1910.11480))
-- \[3\]: R. Yamamoto, E. Song, M.-J. Hwang, and J.-M. Kim, “Parallel waveform synthesis based on generative adversarial networks with voicing-aware conditional discriminators,” in Proc. ICASSP, 2021 ([arXiv](https://arxiv.org/abs/2010.14151))
+- \[1\]: Y. Ren, C. Hu, X. Tan, S. Zhao, Z. Zhao, and T.Y. Liu, “FastSpeech 2: Fast and high-quality end-to-end text-to-speech,” in Proc. ICLR, 2021 ([arXiv](https://arxiv.org/abs/2006.04558)).
+- \[2\]: R. Yamamoto, E. Song, and J.-M. Kim, “Parallel WaveGAN: A fast waveform generation model based on generative adversarial networks with multi-resolution spectrogram,” in Proc. ICASSP, 2020, pp. 6199–6203 ([arXiv](https://arxiv.org/abs/1910.11480)).
+- \[3\]: R. Yamamoto, E. Song, M.-J. Hwang, and J.-M. Kim, “Parallel waveform synthesis based on generative adversarial networks with voicing-aware conditional discriminators,” in Proc. ICASSP, 2021, pp. 6039–6043 ([arXiv](https://arxiv.org/abs/2010.14151)).
+- \[4\]: M. Suzuki, R. Kuroiwa, K. Innami, S. Kobayashi, S. Shimizu, N. Minematsu, and K. Hirose, “Accent sandhi estimation of Tokyo dialect of Japanese using conditional random fields,” IEICE Trans., vol. E100-D, no. 4, pp. 655–661, 2017 ([IEICE](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)).
 
 <br/>
 

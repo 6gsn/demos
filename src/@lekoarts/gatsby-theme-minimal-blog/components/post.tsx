@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Heading } from "theme-ui"
+import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
@@ -50,8 +51,8 @@ const Post = ({ data: { post } }: PostProps) => (
     <p sx={{ color: `secondary`, mt: 2, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
       <time>{post.date}</time>
     </p>
-    <section>
-      <MDXRenderer>{post.body}</MDXRenderer>
+    <section sx={{table: {maxWidth:'50%',}}}>
+        <MDXRenderer>{post.body}</MDXRenderer>
     </section>
   </Layout>
 )
