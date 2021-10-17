@@ -51,13 +51,13 @@ The detailed model structure and training conditions of these two models were th
 
 | Model	| Encoder	| Decoder	| Task |
 | ----- | ------ | ---- | ---- |
-| (a)[[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)]	| -			| CRF		| AP |
-| (b)[[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)]	| -			| CRF		| AN |
-| (c)	| Bi-LSTM		| CRF				| **IP**		|
-| (d)	| Bi-LSTM		| CRF				| **AP**		|
-| (e)	| Bi-LSTM		| AR				| **AN**		|
-| (f)	| Bi-LSTM		| CRF, AR			| **AN+AN**		|
-| (g)	| Bi-LSTM		| CRF, CRF, AR		| **IP+AP+AN**	|
+| (a)[[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)]	| -				| CRF			| **AP** 		|
+| (b)[[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)]	| -				| CRF			| **AN** 		|
+| (c)																							| Bi-LSTM		| CRF			| **IP**		|
+| (d)																							| Bi-LSTM		| CRF			| **AP**		|
+| (e)																							| Bi-LSTM		| AR			| **AN**		|
+| (f)																							| Bi-LSTM		| CRF, AR		| **AN+AN**		|
+| (g)																							| Bi-LSTM		| CRF, CRF, AR	| **IP+AP+AN**	|
 
 <!-- [^1]: bi-directional long short-term memory
 [^2]: conditional random field
