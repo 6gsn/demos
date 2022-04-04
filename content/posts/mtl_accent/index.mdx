@@ -1,6 +1,6 @@
 ---
 title: A unified accent estimation method based on multi-task learning for Japanese text-to-speech
-slug: mtl_accent
+slug: mtl_accent/
 date: 2022-04-04
 ---
 
@@ -84,11 +84,11 @@ The detailed model structure and training conditions of these two models were th
 
 ##### Audio samples (Japanese)
 
-Sample 1: 翌々日１６日夕方の奈良県河合町の降水確率は９０パーセントです。
+Sample 1: **"翌々日１６日夕方の奈良県河合町の降水確率は９０パーセントです。"**
 
-| Reference (Recording)	| Reference (Recording) | System(A)				|
+| Reference (Recording)	| Reference (TTS) | System(A)				|
 |-----------------------|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/record.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/tts.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/single.wav"></audio> |
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/record.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/tts.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/taset.wav"></audio> |
 
  System(B)				| System(C)				| System(D) <font color="color:blue">(proposed)</font>	|
 |-----------------------|-----------------------|-----------------------|
@@ -96,51 +96,51 @@ Sample 1: 翌々日１６日夕方の奈良県河合町の降水確率は９０�
 
 <br/>
 
-Sample 2
+Sample 2: **"立ち続けてましたからね。"**
 
-| Recording			| System(A)				| System(B)				|
+| Reference (Recording)	| Reference (TTS) | System(A)				|
 |-----------------------|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/single.wav"></audio> |
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/record.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/tts.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/taset.wav"></audio> |
 
-| System(C)					| System(D) <font color="color:blue">(proposed)</font>	|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/triple.wav"></audio> |
+ System(B)				| System(C)				| System(D) <font color="color:blue">(proposed)</font>	|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/single.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample02/triple.wav"></audio> |
 
 <br/>
 
-Sample 3
+Sample 3: **"最初にすることは早起き、次にするのが二度寝、その次が後悔。"**
 
-| Recording			| System(A)				| System(B)				|
+| Reference (Recording)	| Reference (TTS) | System(A)				|
 |-----------------------|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/single.wav"></audio> |
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/record.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/tts.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/taset.wav"></audio> |
 
-| System(C)					| System(D) <font color="color:blue">(proposed)</font>	|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/triple.wav"></audio> |
+ System(B)				| System(C)				| System(D) <font color="color:blue">(proposed)</font>	|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/single.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample03/triple.wav"></audio> |
 
 <br/>
 
-Sample 4
+Sample 4: **"タケノリの、ブラディミールさんですね。"**
 
-| Recording			| System(A)				| System(B)				|
+| Reference (Recording)	| Reference (TTS) | System(A)				|
 |-----------------------|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/single.wav"></audio> |
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/record.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/tts.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/taset.wav"></audio> |
 
-| System(C)					| System(D) <font color="color:blue">(proposed)</font>	|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/triple.wav"></audio> |
+ System(B)				| System(C)				| System(D) <font color="color:blue">(proposed)</font>	|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/single.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample04/triple.wav"></audio> |
 
 <br/>
 
-Sample 5
+Sample 5: **"足りないよりもずっと良いと思いますよ。"**
 
-| Recording			| System(A)				| System(B)				|
+| Reference (Recording)	| Reference (TTS) | System(A)				|
 |-----------------------|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/single.wav"></audio> |
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/record.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/tts.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/taset.wav"></audio> |
 
-| System(C)					| System(D) <font color="color:blue">(proposed)</font>	|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/triple.wav"></audio> |
+ System(B)				| System(C)				| System(D) <font color="color:blue">(proposed)</font>	|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/single.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample05/triple.wav"></audio> |
 
 
 <br/>
