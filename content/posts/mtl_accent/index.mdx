@@ -1,10 +1,10 @@
 ---
 title: A unified accent estimation method based on multi-task learning for Japanese text-to-speech
 slug: mtl_accent
-date: 2021-10-07
+date: 2022-04-04
 ---
 
-Submitted to ICASSP2022
+Submitted to Interspeech 2022
 
 ### Authors
 
@@ -20,7 +20,7 @@ We propose a unified accent estimation method for Japanese text-to-speech (TTS).
 Unlike the conventional two-stage methods, which separately train two models for predicting accent phrase boundaries and accent nucleus positions, our method merges the two models and jointly optimizes the entire model in a multi-task learning framework.
 Furthermore, considering the hierarchical linguistic structure of intonation phrases (IPs), accent phrases, and accent nuclei, we generalize the proposed approach to simultaneously model the IP boundaries with accent information.
 Objective evaluation results reveal that the proposed method achieves an accent estimation accuracy of 80.4%, which is 6.67% higher than the conventional two-stage method.
-When the proposed method is incorporated into a neural TTS system, we find that the generated speech has higher human acceptability with respect to prosody even when the predicted prosody information contains some errors.
+When the proposed method is incorporated into a neural TTS framework, the system achieves a 4.29 mean opinion score with respect to prosody naturalness.
 
 <img src="model.png" alt="model" width="350px"/>
 
@@ -221,5 +221,3 @@ Sample 3
 ### Acknowledgements
 This work was supported by Clova Voice, NAVER Corp., Seongnam, Korea.
 The authors would like to thank Yuma Shirahata and Kosuke Futamata at LINE Corp., Tokyo, Japan, for their support.
-
-
