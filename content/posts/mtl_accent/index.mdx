@@ -59,23 +59,24 @@ The detailed model structure and training conditions of these two models were th
 | (f)																							| Bi-LSTM		| CRF, AR		| **AP+AN**		|
 | (g)																							| Bi-LSTM		| CRF, CRF, AR	| **IP+AP+AN**	|
 
-<!-- [^1]: bi-directional long short-term memory
-[^2]: conditional random field
-[^3]: autoregressive model -->
-
 ##### Systems
 
-| System		| Components	|
-| ------------- | ------------- |
-| Recording		| -				|
-| (A)			| (a), (b), (c) |
-| (B)			| (c), (d), (e)	|
-| (C)			| (c), (f)		|
-| (D)			| (g)			|
+| System						| Components	|
+| ------------- 				| ------------- |
+| Reference (Recording) [^1]	| -				|
+| Reference (TTS) [^2]			| -				|
+| (A)							| (a), (b), (c) |
+| (B)							| (c), (d), (e)	|
+| (C)							| (c), (f)		|
+| (D)							| (g)			|
 
-<!-- ##### Targets for comparision -->
+[^2]: Recorded speech.
+[^1]: Synthesized speech using human-annotated prosody information.
 
-<!-- - **Recording** : Recorded speech.
+<!-- ##### Systems used for comparision
+
+- **Reference (Recording)** : Recorded speech.
+- **Reference (TTS)** : Recorded speech.
 - **Syste(A)**:  The system combined three single-task based models, included two CRF-based models for **AP** and **AN** [[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)].
 - **Syste(B)**:  The system combined three single-task based models.
 - **Syste(C)**: The system combined a single-task based model for **IP** task and a dual-task based model for **AP** and **AN** tasks.
@@ -83,15 +84,15 @@ The detailed model structure and training conditions of these two models were th
 
 ##### Audio samples (Japanese)
 
-Sample 1
+Sample 1: 翌々日１６日夕方の奈良県河合町の降水確率は９０パーセントです。
 
-| Recording			| System(A)				| System(B)				|
+| Reference (Recording)	| Reference (Recording) | System(A)				|
 |-----------------------|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/ground.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/taset.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/single.wav"></audio> |
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/record.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/tts.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/single.wav"></audio> |
 
-| System(C)					| System(D) <font color="color:blue">(proposed)</font>	|
-|-----------------------|-----------------------|
-| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/triple.wav"></audio> |
+ System(B)				| System(C)				| System(D) <font color="color:blue">(proposed)</font>	|
+|-----------------------|-----------------------|-----------------------|
+| <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/single.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/dual.wav"></audio> | <audio controls src="https://6gsn.github.io/demos/samples/systems/sample01/triple.wav"></audio> |
 
 <br/>
 
