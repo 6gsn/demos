@@ -59,8 +59,16 @@ const Post = ({ data: { post } }: PostProps) => (
         'table.demo': {
           maxWidth:'100%',
         },
-        'th.demo': {
+        'td.title': {
+          textAlign: 'center',
+          paddingTop: '15px',
+          paddingBottom: '15px',
+        },
+        'td.demo_header': {
           paddingRight: '40px',
+          paddingTop: "10px",
+          paddingBottom: "10px",
+          fontWeight: "bold",
         },
         'td.demo': {
           paddingRight: '40px',
