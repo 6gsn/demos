@@ -51,7 +51,52 @@ const Post = ({ data: { post } }: PostProps) => (
     <p sx={{ color: `secondary`, mt: 2, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>
       <time>{post.date}</time>
     </p>
-    <section sx={{table: {maxWidth:'50%',}}}>
+    <section sx={
+      {
+        table: {
+          maxWidth:'50%',
+        },
+        'table.demo': {
+          maxWidth:'100%',
+        },
+        'th.demo': {
+          paddingRight: '40px',
+        },
+        'td.demo': {
+          paddingRight: '40px',
+          verticalAlign: 'middle',
+          lineHeight: '1.3',
+        },
+        'audio.demo': {
+          width: '140px',
+        },
+        'span.success_accent_label': {
+          // backgroundColor: "#0000ff",
+          color: "#0000ff",
+          fontWeight: "bold",
+        },
+        'span.fail_accent_label': {
+          // backgroundColor: "#ff0000",
+          color: "#ff0000",
+          fontWeight: "bold",
+        },
+        'span.success_boundary_label': {
+          // backgroundColor: "#0000ff",
+          color: "#0000ff",
+          fontWeight: "bold",
+        },
+        'span.fail_boundary_label': {
+          // backgroundColor: "#ff0000",
+          color: "#ff0000",
+          fontWeight: "bold",
+        },
+        'span.fail_blank_label': {
+          backgroundColor: "#ff0000",
+          color: "#ff0000",
+          fontWeight: "bold",
+        },
+      }
+    }>
         <MDXRenderer>{post.body}</MDXRenderer>
     </section>
   </Layout>
