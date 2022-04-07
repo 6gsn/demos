@@ -73,16 +73,41 @@ The detailed model structure and training conditions of these two models were th
 [^2]: Recorded speech.
 [^1]: Synthesized speech using human-annotated prosody information.
 
-<!-- ##### Systems used for comparision
-
-- **Reference (Recording)** : Recorded speech.
-- **Reference (TTS)** : Recorded speech.
-- **Syste(A)**:  The system combined three single-task based models, included two CRF-based models for **AP** and **AN** [[4](https://www.jstage.jst.go.jp/article/transinf/E100.D/4/E100.D_2016AWI0004/_article)].
-- **Syste(B)**:  The system combined three single-task based models.
-- **Syste(C)**: The system combined a single-task based model for **IP** task and a dual-task based model for **AP** and **AN** tasks.
-- **Syste(D)**: The system used a triple-task based model. -->
-
 ##### Audio samples (Japanese)
+
+<table style="max-width:45%">
+	<tr>
+		<th colspan="2"> Tags for simplified output </th>
+	</tr>
+	<tr>
+		<td style="padding-left: 10px; padding-right: 30px; text-align: center"> <b>+</b> </td>
+		<td> accent with high pitch </td>
+	</tr>
+	<tr>
+		<td style="padding-left: 10px; padding-right: 30px; text-align: center"> <b>-</b> </td>
+		<td> accent with low pitch </td>
+	</tr>
+	<tr>
+		<td style="padding-left: 10px; padding-right: 30px; text-align: center"> <b>/</b> </td>
+		<td> accent phrase boundary </td>
+	</tr>
+	<tr>
+		<td style="padding-left: 10px; padding-right: 30px; text-align: center"> <b>#</b> </td>
+		<td> intonation phrase boundary </td>
+	</tr>
+	<tr>
+		<td style="padding-left: 10px; padding-right: 30px; text-align: center"> <span style="color: #0000ff; font-weight: bold">(blue tag)</span> </td>
+		<td> is correct (e.g., <span style="font-weight: bold; color: #0000ff">+</span>: correct accent)</td>
+	</tr>
+	<tr>
+		<td style="padding-left: 10px; padding-right: 30px; text-align: center"> <span style="color: #ff0000; font-weight: bold">(red tag)</span> </td>
+		<td> is incorrect (e.g., <span style="font-weight: bold; color: #ff0000">+</span>: incorrect accent)</td>
+	</tr>
+	<tr>
+		<td style="padding-left: 10px; padding-right: 30px; text-align: center"> <span style="color: #ff0000; background-color: #ff0000">_</span> </td>
+		<td> phrase boundary missing </td>
+	</tr>
+</table>
 
 Sample 1: **"日大アメフト反則問題。"**
 
@@ -110,7 +135,7 @@ Sample 1: **"日大アメフト反則問題。"**
     <tr>
         <td class="demo"> <b>System(B)</b> </td>
         <td class="demo"><audio class="demo" controls src="https://6gsn.github.io/demos/samples/systems/sample01/single.wav"></audio></td>
-        <td class="demo"> ni<span class='success_accent_label'>-</span> chi<span class='success_accent_label'>+</span> da<span class='success_accent_label'>+</span> i<span class='success_accent_label'>+</span> <span class='fail_blank_label'>_</span> a<span class='success_accent_label'>-</span> me<span class='success_accent_label'>+</span> fu<span class='success_accent_label'>+</span> to<span class='success_accent_label'>+</span> <span class='success_boundary_label'>/</span> ha<span class='success_accent_label'>-</span> N<span class='success_accent_label'>+</span> so<span class='success_accent_label'>+</span> ku<span class='success_accent_label'>+</span> mo<span class='success_accent_label'>+</span> N<span class='fail_accent_label'>+</span> da<span class='fail_accent_label'>+</span> i<span class='fail_accent_label'>+</span> . </td>
+        <td class="demo"> ni<span class='success_accent_label'>-</span> chi<span class='success_accent_label'>+</span> da<span class='success_accent_label'>+</span> i<span class='success_accent_label'>+</span> <span class='fail_blank_label'>_</span> a<span class='success_accent_label'>-</span> me<span class='fail_accent_label'>-</span> fu<span class='fail_accent_label'>-</span> to<span class='fail_accent_label'>-</span> <span class='success_boundary_label'>/</span> ha<span class='success_accent_label'>-</span> N<span class='success_accent_label'>+</span> so<span class='success_accent_label'>+</span> ku<span class='success_accent_label'>+</span> mo<span class='success_accent_label'>+</span> N<span class='fail_accent_label'>+</span> da<span class='fail_accent_label'>+</span> i<span class='fail_accent_label'>+</span> . </td>
     </tr>
     <tr>
         <td class="demo"> <b>System(C)</b> </td>
